@@ -6,8 +6,15 @@ const Home = () => import('../views/home/Home')
 const Team = () => import('../views/team/Team')
 const TeamDetail = () => import('../views/teamDetail/TeamDetail')
 const Coupe = () => import('../views/coupe/Coupe')
+const CoupeDetail = () => import('../views/coupeDetail/CoupeDetail')
 const Case = () => import('../views/case/Case')
+const CaseDetail = () => import('../views/caseDetail/CaseDetail')
 const About = () => import('../views/about/About')
+const Project = () => import('../views/project/Project')
+const ProjectDetail = () => import('../views/projectDetail/ProjectDetail')
+const Picture = () => import('../views/projectDetail/ChildCom/Picture')
+const Video = () => import('../views/projectDetail/ChildCom/Video')
+const Product = () => import('../views/projectDetail/ChildCom/Product')
 
 
 const originalPush = VueRouter.prototype.push
@@ -50,6 +57,11 @@ let routes = [
       showTopTab:true
     }
   },
+    {
+    path:'/coupeDetail/:id',
+    component: CoupeDetail,
+  },
+
   {
     path:'/case',
     component: Case,
@@ -57,9 +69,31 @@ let routes = [
       showTopTab:true
     }
   },
+    {
+    path:'/caseDetail',
+    component: CaseDetail,
+  },
+
    {
     path:'/about',
     component: About,
+  },
+  {
+    path:'/project',
+    component: Project
+  },
+{
+    path:'/projectDetail/:id',
+    component: ProjectDetail,
+    redirect:'/ProjectDetail/picture',
+    children: [
+
+      { path: 'picture', component: Picture },
+      { path: 'product', component: Product },
+      { path: 'video', component: Video },
+      { path: '', component: Picture },
+
+    ]
   },
 
 

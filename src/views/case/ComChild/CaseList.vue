@@ -1,6 +1,6 @@
 <template>
     <div class="list">
-            <div class="item" v-for="(item,index) in caseList" :key="index">
+            <router-link :to="'/caseDetail?id='+ item.id" class="item" v-for="(item,index) in caseList" :key="index">
                 <div class="item-inner">
                     <div class="img" :style="{backgroundImage: 'url('+$baseUrl+item.img_resource.src+')'}">
                         <div class="tag">{{item.project.project_name}}</div>
@@ -20,20 +20,30 @@
 
                     </div>
                 </div>
-            </div>
-
+            </router-link>
+        <SearchCover></SearchCover>
     </div>
 </template>
 
 <script>
+    import SearchCover from "../../../components/content/Search/SearchCover";
     export default {
         name: "CaseList",
         data() {
-            return {}
+            return {
+
+            }
         },
         props:{
             caseList:Array
-        }
+        },
+        components:{
+            SearchCover
+        },
+        methods:{
+
+        },
+
     }
 </script>
 
@@ -43,6 +53,7 @@
     padding: 0 7.5px 0 7.5px;
     display: inline-block;
     width: 100%;
+    position: relative;
     .item{
         padding: 0 7.5px 0 7.5px;
         height: 163px;
@@ -129,5 +140,6 @@
             }
         }
     }
+
 }
 </style>

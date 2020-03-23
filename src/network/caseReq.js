@@ -21,3 +21,14 @@ export function reqCaseList(params) {
         method: 'post'
     })
 }
+
+export function reqCaseDetail(case_id) {
+    return request({
+        url: 'home/getCasesInfo',
+        data: {
+            case_id
+        },
+        method: 'post'
+    })
+}
+

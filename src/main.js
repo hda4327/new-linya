@@ -10,7 +10,7 @@ Vue.config.productionTip = false
 
 Vue.prototype.$baseUrl = global_variable.$baseUrl
 Vue.prototype.METHOD = global_method
-
+Vue.prototype.$EventBus = new Vue()
 
 new Vue({
   render: h => h(App),

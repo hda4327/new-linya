@@ -5,15 +5,16 @@
         </div>
         <div class="atlas-list">
             <Scroll ref="scroll" :contentWidth="contentWidth">
-                <img v-for="(item,index) in photoResource"  :src="$baseUrl + item.src" alt="" @click="showCover(index)">
+                <img v-for="(item,index) in photoResource"  :src="$baseUrl + item.src" alt="" @mousedown="showCover(index)">
             </Scroll>
 
         </div>
-        <div class="cover" v-show="isShowCover">
-            <Swiper :options="swiperOptions" class="out-wrapper">
+        <div class="cover" v-show="isShowCover" @mousedown="cancelCover">
+            <Swiper :options="swiperOptions" class="out-wrapper" ref="swiper">
                 <SwiperSlide class="swiper-item"  v-for="(item,index) in photoResource">
                     <img :src="$baseUrl + item.src" alt="" class="swiper-img">
                 </SwiperSlide>
+                <div class="swiper-pagination" slot="pagination"></div>
             </Swiper>
         </div>
 
@@ -39,6 +40,11 @@
                     // centeredSlides:true,
                     observer:true,//修改swiper自己或子元素时，自动初始化swiper
                     observeParents:true,//修改swiper的父元素时，自动初始化swiper
+
+                    pagination: {
+                        el: '.swiper-pagination',
+                        type:'fraction'
+                    },
                 },
                 isShowCover: false
             }
@@ -57,6 +63,10 @@
         methods:{
             showCover(i){
                 this.isShowCover = true
+                this.$refs.swiper.$swiper.slideTo(i)
+            },
+            cancelCover(){
+                this.isShowCover = false
             }
         },
         computed:{
@@ -85,6 +95,7 @@
         }
     }
     .cover{
+        z-index: 99;
         .out-wrapper{
             width: 375px;
 

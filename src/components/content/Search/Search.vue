@@ -1,11 +1,14 @@
 <template>
-    <div class="search" @click="toSearch">
-<!--        <form action="javascript:return true;">-->
-            <input type="search" @focusout="cancelSearch" id="search"  @keyup.enter="search" ref="searchInput">
+    <div class="outer-search">
+        <div class="search" @click="toSearch">
+            <!--        <form action="javascript:return true;">-->
+            <input type="search" @focusout="cancelSearch" id="search"  @keyup.enter="search" ref="searchInput" @focus="addCover">
             <label for="search" class="hint" v-show="isSearching"><img
                     src="~assets/img/common/search.png"><span>搜索</span></label>
-<!--        </form>-->
+            <!--        </form>-->
+        </div>
     </div>
+
 </template>
 
 <script>
@@ -26,12 +29,22 @@
             search(event){
                 this.$refs.searchInput.blur();
                 this.$emit('search', event.target.value)
+            },
+            addCover(){
+                this.$EventBus.$emit('addCover')
             }
         }
     }
 </script>
 
 <style scoped lang="scss">
+    .outer-search{
+        padding: 5px 15px;
+        height: 42px;
+        width: 100%;
+        background: #FAF8F8;
+    }
+
     .search {
         width: 100%;
         height: 22.5px;
@@ -68,6 +81,7 @@
             justify-content: center;
             align-items: center;
             background: #fff;
+            border-radius: 11px;
 
             img {
                 width: 12px;

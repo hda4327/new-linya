@@ -1,6 +1,6 @@
 <template>
     <div class="project-show">
-        <IndexItem title="诊疗项目">
+        <IndexItem title="诊疗项目" :toPath="toPath">
             <div class="project-content">
                 <router-link class="project-item" to="" v-for="(item, index) in projectList" v-if="index<5">
                     <div class="ico"><img :src="item.img_resource.src" alt=""></div>
@@ -21,7 +21,8 @@
         data() {
             return {
                 projectList: {},
-                baseUrl: this.$baseUrl
+                baseUrl: this.$baseUrl,
+                toPath: '/project'
             }
         },
         created() {

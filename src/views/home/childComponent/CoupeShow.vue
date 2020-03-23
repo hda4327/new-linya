@@ -21,7 +21,7 @@
 
 <script>
     import IndexItem from "components/content/IndexItem/IndexItem";
-    import {getCoupeList} from 'network/homeReq'
+    import {reqCoupeList} from 'network/homeReq'
     // import {getDateDiff} from '../../../common/global_method'
     export default {
         name: "CoupeShow",
@@ -32,7 +32,7 @@
             }
         },
         created() {
-            getCoupeList().then(res => {
+            reqCoupeList({}).then(res => {
                 this.coupeList = res.data
                 console.log(res.data)
             })

@@ -21,7 +21,12 @@ export default {
       default: false
     },
     //横向滚动必须填，定义内容宽度
-    contentWidth: Number
+    contentWidth: Number,
+    bounceTop: {
+      default: true,
+      type:Boolean
+
+    }
   },
   data() { 
     return {
@@ -40,9 +45,15 @@ export default {
       probeType: this.probeType,
       click: true,
       pullUpLoad: this.pullUpLoad,
+      bounce: {
+        top: this.bounceTop,
+        bottom: true,
+        left: true,
+        right: true
+      },
 
-      scrollX:true,
-      eventPassthrough:'vertical'
+      scrollX: this.contentWidth?true:false,
+      eventPassthrough:this.contentWidth?'vertical':''
 })
 
     if(this.probeType === 2 || this.probeType === 3){

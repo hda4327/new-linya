@@ -1,8 +1,14 @@
 <template>
     <div class="case-main">
-        <CaseNav :categoryList="categoryList" @changeTab="changeTab" ref="nav"></CaseNav>
-        <Search @search="search"></Search>
-        <CaseList :caseList="caseList"></CaseList>
+        <div class="fix-content">
+            <CaseNav :categoryList="categoryList" @changeTab="changeTab" ref="nav"></CaseNav>
+            <Search @search="search"></Search>
+        </div>
+        <div style="height: 64.5px"></div>
+        <Scroll  class="scroll" :bounceTop="false">
+            <CaseList :caseList="caseList"></CaseList>
+        </Scroll>
+
     </div>
 </template>
 
@@ -10,53 +16,69 @@
     import CaseNav from "./ComChild/CaseNav";
     import CaseList from "./ComChild/CaseList";
     import Search from "components/content/Search/Search";
-    import {reqCaseCat,reqCaseList } from 'network/CaseReq'
+    import {reqCaseCat, reqCaseList} from 'network/caseReq'
+    import Scroll from "../../components/common/scroll/Scroll";
+
     export default {
         name: "Case",
-        data(){
+        data() {
             return {
-                categoryList:[],
-                caseList:[],
+                categoryList: [],
+                caseList: [],
             }
         },
-        components:{
+        components: {
             CaseNav,
             CaseList,
-            Search
+            Search,
+            Scroll
         },
         created() {
             this.getCaseCat()
         },
-        methods:{
-            search(title){
+        methods: {
+            search(title) {
                 let typeId = this.$refs.nav.currentTabIndex
                 this.getCaseList(typeId, title)
             },
-            getCaseCat(){
-                reqCaseCat().then(res=>{
+            getCaseCat() {
+                reqCaseCat().then(res => {
                     this.categoryList = res.data
                     let reqCaseId = this.categoryList[0].id
                     this.getCaseList(reqCaseId)
                 })
             },
 
-            getCaseList(project_id, title=''){
-                let params= {project_id, title}
-                reqCaseList(params).then(res=>{
+            getCaseList(project_id, title = '') {
+                let params = {project_id, title}
+                reqCaseList(params).then(res => {
                     this.caseList = res.data.data
-                    console.log(this.caseList)
                 })
             },
 
-            changeTab(i){
+            changeTab(i) {
                 this.getCaseList(i)
-            }
+            },
+
+
         }
     }
 </script>
 
-<style scoped>
-.case-main{
-
-}
+<style scoped lang="scss">
+    .case-main {
+        position: relative;
+        .fix-content {
+            position: fixed;
+            top: 86px;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            background: #fff;
+        }
+        .scroll{
+            /*height: calc(100% - 100px);*/
+            height: 500px;
+        }
+    }
 </style>

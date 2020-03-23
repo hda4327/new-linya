@@ -27,11 +27,10 @@ export function getProjectList() {
         method: 'post'
     })
 }
-export function getCoupeList() {
+export function reqCoupeList(params) {
     return request({
         url: 'home/getDiscoverList',
-        data: {
-        },
+        data: params,
         method: 'post'
     })
 }

@@ -53,7 +53,7 @@
     .indicator{
         position: absolute;
         right: 10px;
-        bottom: 10px;
+        bottom: 30px;
         background: rgba(1,1,1,0.4);
         color: white;
         width: 40px;

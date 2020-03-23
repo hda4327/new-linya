@@ -45,11 +45,9 @@
             overflow-x: scroll;
             height: 35px;
             line-height: 33px;
-
+            background: #FAF8F8;
 
             .nav-scroll{
-                display: block;
-                position: relative;
                 width: max-content;
                 height: 100%;
                 .nav-item{

@@ -2,10 +2,10 @@
     <div class="index-item">
         <div class="item-title">
             <span class="title">{{title}}</span>
-            <div class="right">
+            <router-link :to="toPath" class="right">
                 <span class="more">更多</span>
                 <img src="~assets/img/home/right-arrow.png" alt="">
-            </div>
+            </router-link>
         </div>
         <slot></slot>
 
@@ -23,6 +23,10 @@
             title:{
                 required:true,
                 type: String,
+            },
+            toPath:{
+                default:'',
+                type: String
             }
 
         }
