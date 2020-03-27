@@ -9,30 +9,26 @@ export function reqProjectList() {
         method: 'post'
     })
 }
-export function reqPictureList() {
+export function reqPictureList(class_id) {
     return request({
         url: 'home/getImg',
         data: {
-
+            class_id
         },
         method: 'post'
     })
 }
-export function reqVideoList() {
+export function reqVideoList(params) {
     return request({
         url: 'home/getVideo',
-        data: {
-
-        },
+        data: params,
         method: 'post'
     })
 }
-export function reqProductList() {
+export function reqProductList(params) {
     return request({
         url: 'home/projectGoodsList',
-        data: {
-
-        },
+        data: params,
         method: 'post'
     })
 }

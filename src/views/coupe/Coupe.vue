@@ -38,11 +38,11 @@
             Scroll
         },
         methods:{
-            getCoupeList(){
+            getCoupeList(type){
 
                 reqCoupeList(this.params).then(res=>{
                     if (res.data.length){
-                        this.coupeList =[...this.coupeList, ...res.data]
+                        this.coupeList = type==='search'?res.data:[...this.coupeList, ...res.data]
                         this.$nextTick(()=>{
                             this.$refs.scroll.refresh()
                             this.$refs.scroll.finishPullUp()
@@ -54,6 +54,7 @@
             },
             search(title){
                 this.params.title = title
+                this.getCoupeList('search')
             },
 
             pullUpLoad(){

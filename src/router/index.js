@@ -83,7 +83,7 @@ let routes = [
     component: Project
   },
 {
-    path:'/projectDetail/:id',
+    path:'/projectDetail',
     component: ProjectDetail,
     redirect:'/ProjectDetail/picture',
     children: [

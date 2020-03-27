@@ -1,9 +1,8 @@
 <template>
     <div class="main">
-        <router-link :to="item.path" class="title" v-for="item in navList" replace>
+        <router-link v-for="item in navList" :to="{path:item.path, query:{id,class_id}}" class="title" :class="isCurrentRoute(item.path)?'active':''"  replace>
             {{item.title}}
         </router-link>
-
     </div>
 </template>
 
@@ -11,12 +10,29 @@
     export default {
         name: "Nav",
         data() {
-            return {}
+            return {
+                id: '',
+                class_id: '',
+            }
         },
         props:{
             navList:{
                 default:[{title:'图解', path:'picture'}, {title:'动画',path:'video'}],
                 type:Array
+            }
+        },
+        created() {
+            this.id = this.$route.query.id
+            this.class_id = this.$route.query.class_id
+        },
+        methods:{
+
+        },
+        computed:{
+            isCurrentRoute(){
+                return function (path){
+                    return this.$route.path.indexOf(path)>-1
+                }
             }
         }
     }

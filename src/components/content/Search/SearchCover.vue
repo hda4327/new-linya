@@ -17,7 +17,6 @@
                 this.isShowCover =true
             })
             this.$once('hook:deactivated', ()=>{
-                console.log(12)
                 this.$EventBus.$off('addCover')
             })
         },

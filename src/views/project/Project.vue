@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-        <router-link :to="'/projectDetail/' + item.classify_id" class="item" style="" v-for="item in projectList">
+        <router-link :to="{path:'/projectDetail/picture', query:{class_id:item.classify_id, id:item.id }}" class="item" v-for="item in projectList">
             <img :src="item.img_resource.src">
             <p>{{item.project_name}}</p>
         </router-link>
@@ -27,7 +27,8 @@
                 })
             }
 
-        }
+        },
+
     }
 </script>
 
