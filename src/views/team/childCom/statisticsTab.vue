@@ -48,7 +48,7 @@
     .statistics-content {
         margin: 0 auto;
         margin-top: -50px;
-        width: 345px;
+        width: 90%;
         height: 90px;
         background: linear-gradient(-90deg, rgba(61, 153, 255, 0.98), rgba(137, 156, 255, 0.98));
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);

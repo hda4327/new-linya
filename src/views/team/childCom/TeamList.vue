@@ -28,7 +28,7 @@
             </div>
             <div class="contract-content">
                 <div class="left">
-                    <a :href="'tel:'+companyMsg.phone" class="phone">
+                    <a :href="'tel:'+companyMsg.phone" class="phone" @click.stop="">
                         <div class="ico-bg phone-bg">
                             <img src="~assets/img/doctor/phone.png" alt="" class="phone-ico">
                         </div>
@@ -94,7 +94,7 @@
         .team-item {
             margin: 0 auto;
             margin-top: 15px;
-            width: 345px;
+            width: 90%;
             height: 227px;
             background: rgba(255, 255, 255, 1);
             box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);

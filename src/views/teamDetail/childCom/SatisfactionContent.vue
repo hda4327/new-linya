@@ -3,7 +3,7 @@
         <div class="item item1" @click="saveSatisfied(0)"><span :style="{color:activeIndex===0?'rgb(0, 183, 113)':'rgba(50,50,50,1)'}">非常满意</span><img :src="smilingImg(0)" alt=""></div>
         <div class="item item2" @click="saveSatisfied(1)"><span :style="{color:activeIndex===1?'rgb(76, 150, 255)':'rgba(50,50,50,1)'}">满意</span><img :src="smilingImg(1)" alt=""></div>
         <div class="item item3" @click="saveSatisfied(2)"><span :style="{color:activeIndex===2?'rgb(255, 150, 0)':'rgba(50,50,50,1)'}">一般</span><img :src="smilingImg(2)" alt=""></div>
-        <div class="item case-btn">机构病例</div>
+        <router-link to="/case"  class="item case-btn">机构病例</router-link>
     </div>
 </template>
 
@@ -30,6 +30,7 @@
         },
         methods:{
             saveSatisfied(i){
+
                 if (this.activeIndex !==i){
                     //只要smilingState其中有一个是true
                    if (this.activeIndex !== -1){

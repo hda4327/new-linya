@@ -1,7 +1,7 @@
 <template>
     <div class="coupe-show">
-        <IndexItem title="口腔科普">
-            <router-link v-for="(item, index) in coupeList" v-if="index<2" class="coupe-content" to="">
+        <IndexItem title="口腔科普" :toPath="'/coupe'">
+            <router-link :to="'/coupeDetail/'+ item.id" v-for="(item, index) in coupeList" v-if="index<2" class="coupe-content" >
                 <div class="coupe-item">
                     <img :src="item.imgsrc" alt="" class="left">
                     <div class="right">

@@ -4,8 +4,10 @@ import router from './router'
 import store from './store'
 import global_variable from "./common/global_variable"
 import global_method from "./common/global_method"
+import { Picker,Popup  } from 'vant';
 
-
+Vue.use(Picker);
+Vue.use(Popup);
 Vue.config.productionTip = false
 
 Vue.prototype.$baseUrl = global_variable.$baseUrl

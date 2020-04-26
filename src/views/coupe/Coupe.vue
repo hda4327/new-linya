@@ -3,7 +3,7 @@
         <div class="fixed-content">
             <Search @search="search"></Search>
         </div>
-        <div style="height: 42px"></div>
+        <div style="height: 50px"></div>
         <Scroll ref="scroll"  :pullUpLoad="true" @pullingUp="pullUpLoad" class="scroll" :bounceTop="false">
             <CoupeList :coupeList="coupeList"></CoupeList>
         </Scroll>
@@ -74,6 +74,6 @@
     right: 0;
 }
     .scroll{
-        height: 550px;
+        height: 600px;
     }
 </style>

@@ -84,11 +84,11 @@
         },
         computed:{
             professionalList(){
-                let i = this.doctorData.professional.split(",")
-                if (i.length>3){
-                    i.pop()
+                let list = this.doctorData.professional.split(",")
+                if (!list[list.length-1]){
+                    list.pop()
                 }
-                return i
+                return list
             },
 
 

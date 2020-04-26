@@ -49,7 +49,7 @@
 
 <style scoped lang="scss">
 .list{
-    margin-top: 15px;
+    /*margin-top: 15px;*/
     padding: 0 7.5px 0 7.5px;
     display: inline-block;
     width: 100%;

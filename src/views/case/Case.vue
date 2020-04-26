@@ -4,7 +4,7 @@
             <CaseNav :categoryList="categoryList" @changeTab="changeTab" ref="nav"></CaseNav>
             <Search @search="search"></Search>
         </div>
-        <div style="height: 64.5px"></div>
+        <div style="height: 85px"></div>
         <Scroll  class="scroll" :bounceTop="false">
             <CaseList :caseList="caseList"></CaseList>
         </Scroll>

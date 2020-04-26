@@ -34,7 +34,7 @@
 
 <style scoped lang="scss">
 .team-nav{
-    width: 345px;
+    width: 90%;
     height: 45px;
     background: rgba(255,255,255,1);
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);

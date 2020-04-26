@@ -1,8 +1,8 @@
 <template>
     <div class="video-show">
-        <IndexItem title="口腔视频">
+        <IndexItem title="口腔视频" toPath="/video">
             <div class="video-content">
-                <router-link v-for="(item, index) in videoList" v-if="index<4" class="video-item" to="">
+                <router-link v-for="(item, index) in videoList" v-if="index<4" class="video-item" :to="'/videoDetail/'+ item.id">
                     <div class="video" :style="{backgroundImage: 'url('+item.pic+')'}">
                         <img src="~assets/img/home/play.png" alt="">
                     </div>

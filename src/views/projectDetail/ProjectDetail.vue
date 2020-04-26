@@ -22,6 +22,7 @@
                 picList: [],
                 proList:[],
                 videoList: [],
+
             }
         },
         created(){

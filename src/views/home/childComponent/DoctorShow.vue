@@ -1,8 +1,8 @@
 <template>
     <div class="doctor-show">
-        <IndexItem title="医生团队">
+        <IndexItem title="医生团队" toPath="/team">
 
-            <router-link to="" class="doctor-content" v-for="(item, index) in doctorList" v-if="index<2">
+            <router-link :to="'/teamDetail/' + item.id" class="doctor-content" v-for="(item, index) in doctorList" v-if="index<2">
                 <div class="head-img" :style="{backgroundImage: 'url('+baseUrl + item.img_resource.src+')'}">
 
                 </div>

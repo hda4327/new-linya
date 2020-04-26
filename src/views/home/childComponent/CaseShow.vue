@@ -1,7 +1,7 @@
 <template>
     <div class="case-show">
-        <IndexItem title="病例中心">
-            <router-link to="" class="case-content"  v-for="(item, index) in caseList" v-if="index<2">
+        <IndexItem title="病例中心" :toPath="'/case'">
+            <router-link :to="'/caseDetail?id='+ item.id" class="case-content"  v-for="(item, index) in caseList" v-if="index<2">
                 <div class="case-img" :style="{backgroundImage: 'url('+baseUrl + item.img_resource.src+')'}">
 
                 </div>

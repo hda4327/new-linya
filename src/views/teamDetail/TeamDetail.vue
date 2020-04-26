@@ -7,7 +7,7 @@
         <template v-if="doctorData.wx_img_resource">
             <DoctorWx :wxImg="wxImageUrl" :name="doctorData.name"></DoctorWx>
         </template>
-        <template v-if="doctorData.photo_resource">
+        <template v-if="doctorData.photo_resource.length">
             <AtlasContent :photoResource="doctorData.photo_resource"></AtlasContent>
         </template>
         <GiftContent></GiftContent>

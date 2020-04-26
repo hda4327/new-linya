@@ -15,17 +15,20 @@ const store = new Vuex.Store({
     state,
     actions:{
         reqCompanyMsg(){
-            return reqCompanyMsg()
+            return reqCompanyMsg().then(res=>{
+
+                this.commit('getCompanyMsg', res.data)
+
+            })
         }
     },
     mutations:{
-      getCompanyMsg(state){
-          this.dispatch('reqCompanyMsg').then(res=>{state.companyMsg = res.data});
-
-      },
-      setSid(state, sid){
+        getCompanyMsg(state, data){
+            state.companyMsg = data
+        },
+       setSid(state, sid){
           state.sid = sid
-      }
+       }
     },
 
 })

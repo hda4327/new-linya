@@ -13,7 +13,8 @@ const About = () => import('../views/about/About')
 const Project = () => import('../views/project/Project')
 const ProjectDetail = () => import('../views/projectDetail/ProjectDetail')
 const Picture = () => import('../views/projectDetail/ChildCom/Picture')
-const Video = () => import('../views/projectDetail/ChildCom/Video')
+const Video = () => import('../views/video/Video')
+const VideoDetail = () => import('../views/videoDetail/VideoDetail')
 const Product = () => import('../views/projectDetail/ChildCom/Product')
 
 
@@ -61,7 +62,15 @@ let routes = [
     path:'/coupeDetail/:id',
     component: CoupeDetail,
   },
+  {
+    path:'/video',
+    component: Video,
 
+  },
+  {
+    path:'/videoDetail/:id',
+    component: VideoDetail,
+  },
   {
     path:'/case',
     component: Case,
@@ -109,20 +118,30 @@ const router = new VueRouter({
 
 
 
+//全局路由前置守卫
 router.beforeEach((to, from, next) => {
+  // 进入非登录页
   if (to.path !='/login'){
     const sid = to.query.sid || localStorage.getItem('sid');
     if (sid){
-      localStorage.setItem('sid', sid)
-      store.commit('setSid', sid)
-      store.commit('getCompanyMsg')
+      localStorage.setItem('sid', sid);
+      store.commit('setSid', sid);
+
+      // 在得到企业数据之后进行路由跳转，保证页面中获取到企业数据
+      store.dispatch('reqCompanyMsg').then(res=>{
+        next()
+      })
+
     }
     else {
       next({ path : '/login'})
       return
     }
   }
-  next()
+  else{
+    next()
+  }
+
 })
 
 export default router;

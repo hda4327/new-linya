@@ -97,7 +97,7 @@
     .cover{
         z-index: 99;
         .out-wrapper{
-            width: 375px;
+            width: 100%;
 
         }
         .swiper-item{

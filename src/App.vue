@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <div class="top-name" v-if="$route.meta.showTopTab">杭州邻牙科技有限公司</div>
+        <div class="top-name" v-if="$route.meta.showTopTab">{{companyName}}</div>
         <MainTopTab v-if="$route.meta.showTopTab"></MainTopTab>
 <!--        清除fixed dom的高度-->
         <div style="height: 86px" v-show="$route.meta.showTopTab"></div>
@@ -9,6 +9,7 @@
         </keep-alive>
 
         <SupportTip></SupportTip>
+        <ContactBottom></ContactBottom>
     </div>
 </template>
 
@@ -17,16 +18,33 @@
     import Login from 'views/login'
     import MainTopTab from "views/home/childComponent/MainTopTab";
     import SupportTip from "components/content/supportTip/SupportTip"
+    import ContactBottom from "components/content/companyInfo/ContactBottom"
 
     export default {
         name: 'app',
+        data(){
+            return {
+            }
+        },
         components: {
             Home,
             Login,
             MainTopTab,
-            SupportTip
+            SupportTip,
+            ContactBottom
         },
-        methods: {}
+        methods: {},
+        created(){
+//            console.log(.name)
+        },
+        computed:{
+            companyName(){
+                let seller_company = this.$store.state.companyMsg.seller_company
+
+                return seller_company && seller_company.name
+
+            }
+        }
     }
 </script>
 
